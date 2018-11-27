@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  starting_pt: 1
+  ending_pt: 1
+
+two:
+  starting_pt: 1
+  ending_pt: 1
