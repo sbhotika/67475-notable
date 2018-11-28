@@ -1,1 +1,48 @@
-<h1>Hello World!</h1>
+<h1>Hello Wofrld! </h1>
+
+<p><%= @temp %>j</p>
+
+<button id="start" value=1000>Start Transcription</button>
+
+<p id="resultText">Start here: </p>
+
+<script type="text/javascript">
+  var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+  var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+  var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+  var trascribeButton = document.getElementById("start")
+
+  var trascribeControl = false
+
+  trascribeButton.addEventListener("click",myFunction);
+
+
+  function myFunction() {
+    global transcribeControl;
+    // start
+    if (transcribeControl === false) {
+      alert("clicked");
+      alert(typeof document.getElementById("resultText").textContent);
+
+      var currentPara = document.getElementById("resultText").textContent
+
+      trascribeButton.textContent = "Transcribing..."
+
+      console.log(document.getElementById("resultText").textContent)
+
+      transcribeControl = true
+    }
+    // stop
+    else {
+
+
+      trascribeButton.textContent = "Start Transcription"
+
+
+      transcribeControl = false
+    }
+
+  }
+
+</script>
