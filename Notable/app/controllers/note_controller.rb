@@ -1,2 +1,3 @@
 class NoteController < ApplicationController
+	
 end
