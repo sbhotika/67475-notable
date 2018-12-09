@@ -6,6 +6,11 @@ class NoteController < ApplicationController
 		@note = Note.new
 	end
 
+	def transcribe
+		@content = nil #this is where we call the library
+
+	end
+
 
 
 end
