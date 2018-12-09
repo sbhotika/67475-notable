@@ -1,4 +1,4 @@
-class NoteController < ApplicationController
+class NotesController < ApplicationController
 	def index
 	end
 
@@ -11,6 +11,6 @@ class NoteController < ApplicationController
 
 	end
 
-
-
+  	def new
+ 	end
 end
