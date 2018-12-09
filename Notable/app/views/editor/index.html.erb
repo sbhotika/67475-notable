@@ -1,46 +1,137 @@
-<h1>Hello Wofrld! </h1>
+<h1>Hello World! </h1>
 
 <p><%= @temp %>j</p>
 
-<button id="start" value=1000>Start Transcription</button>
+<button id="transcribe" value="off">Start Transcription</button>
 
 <p id="resultText">Start here: </p>
 
 <script type="text/javascript">
-  var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-  var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-  var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+  $( document ).ready(function() {
+    alert( "ready!" );
+  });
 
-  var trascribeButton = document.getElementById("start")
 
-  var trascribeControl = false
 
-  trascribeButton.addEventListener("click",myFunction);
+
+
+  var transcribeButton = document.getElementById("transcribe")
+
+
+  alert(transcribeButton);
+
+  transcribeButton.addEventListener("click",myFunction);
 
 
   function myFunction() {
-    global transcribeControl;
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+    var transcribeButton = document.getElementById("transcribe")
+    var transcribeButtonStatus = transcribeButton.value
+
+
+    var grammar = '#JSGF V1.0; grammar words; public <word> = Good | morning | everybody | We’re | going | to | have | a | quick | meeting | today | about | some | things | we | have | to | get | done | this | week | The | first | task | is | to | figure | out | what | the | client | wants | from | George | by | Friday | Sounds | good | to | me | Great | The | second | task | is | to | determine | the | specifications | needed | to | deploy | our | test | environment | Alex | does | that | work | with | you | That | works | Awesome | Finally | the | third | task | is | to | schedule | a | time | for | a | final | round | of | user | testing | so | we | need | to | book | a | room | Sally | that | work | Sure | Thanks | for | coming | guys | Let’s | make | good | software ;'
+
+
+
+    alert("yes")
     // start
-    if (transcribeControl === false) {
+    if (transcribeButtonStatus === "off") {
       alert("clicked");
       alert(typeof document.getElementById("resultText").textContent);
 
       var currentPara = document.getElementById("resultText").textContent
 
-      trascribeButton.textContent = "Transcribing..."
+      transcribeButton.textContent = "Transcribing..."
 
-      console.log(document.getElementById("resultText").textContent)
+      transcribeButton.value = "on"
 
-      transcribeControl = true
+      // transcribe
+      var recognition = new SpeechRecognition();
+      var speechRecognitionList = new SpeechGrammarList();
+      speechRecognitionList.addFromString(grammar, 1);
+      recognition.grammars = speechRecognitionList;
+      recognition.lang = 'en-US';
+      recognition.interimResults = true;
+      recognition.maxAlternatives = 1;
+      recognition.continuous = true;
+      // start it
+      recognition.start();
+
+      recognition.onresult = function(event) {
+        console.log(event.results)
+        var speechResult = event.results[0][0].transcript.toLowerCase();
+
+        for (var i = 0; i < event.results.length; i++) {
+          var current = event.results[i]
+          for (var j = 0; j < current.length; j++) {
+            var result = current[j].transcript.toLowerCase()
+            console.log(result);
+          }
+        }
+
+        console.log(speechResult)
+
+        var resultDiv = document.getElementById("resultText")
+
+        var currentContent = resultDiv.textContent
+
+        resultDiv.textContent = currentContent + speechResult
+
+        console.log('Confidence: ' + event.results[0][0].confidence);
+      }
+
+
+      recognition.onaudiostart = function(event) {
+          //Fired when the user agent has started to capture audio.
+          console.log('SpeechRecognition.onaudiostart');
+      }
+
+      recognition.onaudioend = function(event) {
+          //Fired when the user agent has finished capturing audio.
+          console.log('SpeechRecognition.onaudioend');
+      }
+
+      recognition.onend = function(event) {
+          //Fired when the speech recognition service has disconnected.
+          console.log('SpeechRecognition.onend');
+          // myFunction();
+      }
+
+      recognition.onnomatch = function(event) {
+          //Fired when the speech recognition service returns a final result with no significant recognition. This may involve some degree of recognition, which doesn't meet or exceed the confidence threshold.
+          console.log('SpeechRecognition.onnomatch');
+      }
+
+      recognition.onsoundstart = function(event) {
+          //Fired when any sound — recognisable speech or not — has been detected.
+          console.log('SpeechRecognition.onsoundstart');
+      }
+
+      recognition.onsoundend = function(event) {
+          //Fired when any sound — recognisable speech or not — has stopped being detected.
+          console.log('SpeechRecognition.onsoundend');
+      }
+
+      recognition.onspeechstart = function (event) {
+          //Fired when sound that is recognised by the speech recognition service as speech has been detected.
+          console.log('SpeechRecognition.onspeechstart');
+      }
+      recognition.onstart = function(event) {
+          //Fired when the speech recognition service has begun listening to incoming audio with intent to recognize grammars associated with the current SpeechRecognition.
+          console.log('SpeechRecognition.onstart');
+      }
+
     }
     // stop
     else {
+      alert("fuck")
 
+      transcribeButton.textContent = "Start Transcription"
 
-      trascribeButton.textContent = "Start Transcription"
-
-
-      transcribeControl = false
+      transcribeButton.value = "off"
     }
 
   }
