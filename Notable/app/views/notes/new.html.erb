@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notable</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/note.css"/>
+
+  <!-- javascript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <%= javascript_include_tag "review_progress" %>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-left">
+    <div class="nav-container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><img src="/images/profile_pic1.svg"></a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav-note">
+          <div id="add-notes"><i class="fa fa-plus-circle"></i></div>
+          <li><a class="active" href="#"><i class="fa fa-home"></i></a></li> 
+          <li><a href="#"><i class="fa fa-file"></i></a></li> 
+          <li><a href="#"><i class="fa fa-tasks"></i></a></li> 
+          <li><a href="#"><i class="fa fa-commenting-o"></i></a></li>
+          <li><a href="#"><i class="fa fa-share-square-o"></i></a></li> 
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+  <div class="left-half">
+    <article>
+      <h1>Review Progress</h1>
+      <hr>
+      <div class="list">
+          <ol id="review-list">
+              <li> <input type="checkbox" class="complete-item"> Section 1 <button class="delete-item">X</button></li></li>
+              <li> <input type="checkbox" class="complete-item"> Section 2 <button class="delete-item">X</button></li></li>
+              <li> <input type="checkbox" class="complete-item"> Section 3 <button class="delete-item">X</button></li></li>
+          </ol>
+      </div>
+      <input id="new-list-item" type="text"></input>
+      <button id="add-item">Add New</button>
+
+    </article>
+  </div>
+  <div class="right-half">
+    <div class="notes-header">
+      <h1>Monday Meeting Notes</h1>
+      <i class="fa fa-pencil-square-o" id="edit-icon"></i>
+      <img src="/images/groups.svg" id="groups">
+      <i class="fa fa-microphone" id="microphone-icon"></i>
+    </div>
+    <img src="/images/toolbar.svg" id="toolbar">
+    <div class="notes-body">
+    	  <!-- this is where to populate the transcription context -->
+    </div>
+  </div>
+
+    
+
+  </div>
+
+</body>
+</html>
