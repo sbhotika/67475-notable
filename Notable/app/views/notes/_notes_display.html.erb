@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      Hello: Raw
+      <textarea id="note-textarea" rows="17" cols="80" placeholder="Meeting notes.f.."></textarea>
+
+    </div>
+
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      Goodbye: Parsed
+      <%= @parsed_text %>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#note-textarea').val("<%= @raw_text %>");
+
+  // expand textarea
+  var textarea = document.querySelector('textarea');
+
+  textarea.addEventListener('keydown', autosize);
+
+  function autosize(){
+    var el = this;
+    setTimeout(function(){
+      el.style.cssText = 'height:auto; padding:0';
+      // for box-sizing other than "content-box" use:
+      // el.style.cssText = '-moz-box-sizing:content-box';
+      el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    },0);
+  }
+
+</script>

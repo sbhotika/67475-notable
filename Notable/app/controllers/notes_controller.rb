@@ -7,9 +7,10 @@ class NotesController < ApplicationController
 	end
 
 	def transcribe
-		params[:rawText]
 
-		@content = "hello"
+
+		@raw_text = params[:rawText]
+		@parsed_text = "parsed"
 
 		puts "\n\\n\n" + params[:rawText] + "\n\n\n\n\n"
 

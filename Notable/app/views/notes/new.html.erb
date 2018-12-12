@@ -62,16 +62,22 @@
       <i class="fa fa-pencil-square-o" id="edit-icon"></i>
       <img src="/images/groups.svg" id="groups">
       <button value="off" class="fa fa-microphone" id="microphone-icon"></button>
+      &nbsp;
+      <a href='#' id='executer-button' class='btn btn-default'>Organize</a>
       <br><p align='right' style='margin-right:16%'id="recording-instructions">Voice Transcription: Off</p>
+
       <!-- <p> asdf </p> -->
     </div>
     <img src="/images/toolbar.svg" id="toolbar">
-    <a href='#' id='executer-button' class='btn btn-default'>Executer</a>
+
 
 
     <div class="notes-body">
-        <p id="note-textarea">hello</p>
-    	  <!-- this is where to populate the transcription context -->
+        <div id="notes-content">
+          <!-- <p id="note-textarea">hello</p> -->
+          <textarea id="note-textarea" rows="17" cols="80" placeholder="Meeting notes..."></textarea>
+      	  <!-- this is where to populate the transcription context -->
+        </div>
     </div>
   </div>
 
@@ -79,23 +85,23 @@
     // set ajax
     //This function calls the "execute" controller action, using its route and also
     //passes a "selectingCommand" variable to it
-    var callExecuter=function(){
-      var text = document.getElementById("note-textarea").textContent
+    var callExecuter=function(e){
+      e.preventDefault();
+      e.stopPropagation(); // only neccessary if something above is listening to the (default-)event too
+
+
+      var text = document.getElementById("note-textarea").value
       alert("ajax!");
       $.ajax({
         type:'GET',
         url:'/notes/transcribe',
         data: { rawText : text
-              },
-        success:function(){
-          alert(<%= @content %>);
-          //I assume you want to do something on controller action execution success?
-          $(this).addClass('done');
-        }
+              }
+
       });
     }
 
-    $(document).on("click","#executer-button",callExecuter);
+    $("#executer-button").on("click",callExecuter);
   </script>
 
 
