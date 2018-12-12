@@ -88,7 +88,7 @@ article {
   	background: white;
   	position: absolute;
   	right: 0px;
- 	width:62.5%;
+ 		width:62.5%;
   	height:100vh;
   	border-width: 0 0 0 1px;
   	border-style: solid;
@@ -172,5 +172,9 @@ textarea{
   margin:50px auto;
   display:block;
   border-radius:10px;
-  border:6px solid #556677;
+}
+
+.right-border {
+	border-right:2px solid #EEEEEE !important;
+
 }

@@ -1,11 +1,12 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 right-border">
       Hello: Raw
       <textarea id="note-textarea" rows="17" cols="80" placeholder="Meeting notes.f.."></textarea>
 
     </div>
+
 
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -17,7 +18,7 @@
 </div>
 
 <script type="text/javascript">
-  $('#note-textarea').val("<%= @raw_text %>");
+  var text = document.getElementById("note-textarea").value = "<%= @raw_text %>");
 
   // expand textarea
   var textarea = document.querySelector('textarea');
