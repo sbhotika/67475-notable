@@ -47,12 +47,12 @@ $( document ).ready(function() {
 
   recognition.onstart = function() {
     console.log("V: "+ transcribeButton.value);
-    instructions.textContent = 'Voice recognition activated. Try speaking into the microphone.';
+    instructions.textContent = 'Voice Transcription: On';
     console.log("V: "+ transcribeButton.value);
   }
 
   recognition.onspeechend = function() {
-    instructions.textContent = ""
+    instructions.textContent = "Voice Transcription: On"
     // instructions.textContent = 'You were quiet for a while so voice recognition turned itself off.';
   }
 
@@ -113,7 +113,7 @@ $( document ).ready(function() {
       recognition.stop();
       transcribeButton.value = "off"
       transcribeButtonStatus = "off"
-      instructions.textContent = ""
+      instructions.textContent = "Voice Transcription: Off"
     }
 
   }
@@ -132,7 +132,8 @@ $( document ).ready(function() {
     newText = newText.replace("with you","with you?<br><br>");
     newText = newText.replace("that works","That works.<br><br>");
     newText = newText.replace("awesome finally","Awesome. Finally");
-    newText = newText.replace("sally that work","Sally, that work?<br><br>");
+    newText = newText.replace("work","work?<br><br>");
+    newText = newText.replace("sally","Sally<br><br>");
     newText = newText.replace("sure","Sure.<br><br>");
     newText = newText.replace("thanks for","Thanks for");
     newText = newText.replace("guys","guys.");
