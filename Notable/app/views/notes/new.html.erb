@@ -28,13 +28,13 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav-note">
           <div id="add-notes"><i class="fa fa-plus-circle"></i></div>
-          <li><a class="active" href="#"><i class="fa fa-home"></i></a></li> 
-          <li><a href="#"><i class="fa fa-file"></i></a></li> 
-          <li><a href="#"><i class="fa fa-tasks"></i></a></li> 
+          <li><a class="active" href="#"><i class="fa fa-home"></i></a></li>
+          <li><a href="#"><i class="fa fa-file"></i></a></li>
+          <li><a href="#"><i class="fa fa-tasks"></i></a></li>
           <li><a href="#"><i class="fa fa-commenting-o"></i></a></li>
-          <li><a href="#"><i class="fa fa-share-square-o"></i></a></li> 
+          <li><a href="#"><i class="fa fa-share-square-o"></i></a></li>
         </ul>
-        
+
       </div>
     </div>
   </nav>
@@ -42,13 +42,13 @@
   <div class="container">
   <div class="left-half">
     <article>
-      <h1>Review Progress</h1>
+      <h1>Task Progress</h1>
       <hr>
       <div class="list">
           <ol id="review-list">
-              <li> <input type="checkbox" class="complete-item"> Section 1 <button class="delete-item">X</button></li></li>
-              <li> <input type="checkbox" class="complete-item"> Section 2 <button class="delete-item">X</button></li></li>
-              <li> <input type="checkbox" class="complete-item"> Section 3 <button class="delete-item">X</button></li></li>
+              <!-- <li> <input type="checkbox" class="complete-item"> Section 1 <button class="delete-item">X</button></li>
+              <li> <input type="checkbox" class="complete-item"> Section 2 <button class="delete-item">X</button></li>
+              <li> <input type="checkbox" class="complete-item"> Section 3 <button class="delete-item">X</button></li> -->
           </ol>
       </div>
       <input id="new-list-item" type="text"></input>
@@ -61,15 +61,18 @@
       <h1>Monday Meeting Notes</h1>
       <i class="fa fa-pencil-square-o" id="edit-icon"></i>
       <img src="/images/groups.svg" id="groups">
-      <i class="fa fa-microphone" id="microphone-icon"></i>
+      <button value="off" class="fa fa-microphone" id="microphone-icon"></button>
+      <br><p align='right' style='margin-right:16%'id="recording-instructions">Status</p>
+      <!-- <p> asdf </p> -->
     </div>
     <img src="/images/toolbar.svg" id="toolbar">
     <div class="notes-body">
+        <p id="note-textarea"></p>
     	  <!-- this is where to populate the transcription context -->
     </div>
   </div>
 
-    
+
 
   </div>
 

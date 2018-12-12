@@ -1,5 +1,3 @@
-<h1>Hello World! </h1>
-
 <p><%= @temp %>j</p>
 
 <button id="transcribe" value="off">Start Transcription</button>
@@ -56,7 +54,7 @@
 
     if (!mobileRepeatBug) {
       noteContent += transcript;
-      noteTextarea.textContent = noteContent;
+      noteTextarea.textContent += noteContent;
     }
   };
 
@@ -77,8 +75,9 @@
   var transcribeButton = document.getElementById("transcribe")
 
   alert(transcribeButton);
-
+  alert(transcribeButtonStatus);
   transcribeButton.addEventListener("click",myFunction);
+  alert(transcribeButtonStatus);
 
 
   function myFunction() {
