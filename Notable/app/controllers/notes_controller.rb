@@ -26,6 +26,9 @@ class NotesController < ApplicationController
 
 		@raw_text = raw_text
 
+		@subject = get_subject(line_buffer)
+
+		puts "Subject line: " + @subject
 
 		@participants = get_people(line_buffer)
 
@@ -45,6 +48,43 @@ class NotesController < ApplicationController
 	def split_by_lines(raw_buffer)
 		return raw_buffer.split(/$\n\n^/)
 	end
+
+	def get_subject(buffer)
+		keyword = /about|About/
+		# go through all lines
+		buffer.each do |line|
+			words = line.split(/[.?\s,]/)
+			# try to find the target word
+			words.each do |word|
+				if (keyword.match(word))
+					puts "Found about!: " + word
+					return parse_subject_line(line)
+				end
+			end
+		end
+	end
+
+
+	# precondition = has to have the keyword
+	def parse_subject_line(line)
+		keyword = "about"
+		lowercase_line = (line.to_str.downcase)
+
+		# based on keyword, begin the topic substring retrieval
+		start_index = lowercase_line.index(keyword) + keyword.length + 1 # add one to get first word
+
+		end_of_line = lowercase_line.length
+
+		puts "nice"
+		puts lowercase_line[start_index..end_of_line]
+
+		# get end of topic by finding the next period/end
+		end_index = start_index + lowercase_line[start_index..end_of_line].index(".") - 1
+
+		return lowercase_line[start_index..end_index].capitalize
+
+	end
+
 
 	def get_people(buffer)
 		people = []
