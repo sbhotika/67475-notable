@@ -28,12 +28,19 @@ class NotesController < ApplicationController
 
 		@subject = get_subject(line_buffer)
 
-		puts "Subject line: " + @subject
+		puts "Subject: " + @subject
 
 		@participants = get_people(line_buffer)
 
+		puts "People: " + @participants.join("', '")
+
+		@tasks = get_tasks(line_buffer)
+
+		puts "Tasks: \n- " + @tasks.join("\n- ")
+
 
 		@parsed_text = "parsed"
+
 
 		respond_to do |format|
         format.js
@@ -44,6 +51,24 @@ class NotesController < ApplicationController
  	end
 
 	private
+
+	def get_tasks(buffer)
+		tasks = []
+		keywords = /task|tasks/
+		buffer.each do |line|
+			words = line.split(/[.?\s,]/)
+			# try to find the target word
+			words.each do |word|
+				if (keywords.match(word))
+					puts "Found task!: " + line
+					tasks << parse_task_line(line)
+				end
+			end
+		end
+		return tasks
+	end
+
+
 
 	def split_by_lines(raw_buffer)
 		return raw_buffer.split(/$\n\n^/)
@@ -64,6 +89,25 @@ class NotesController < ApplicationController
 		end
 	end
 
+	# precondition = has to have the keyword
+	def parse_task_line(line)
+		keyword = "task is to"
+		lowercase_line = (line.to_str.downcase)
+
+		# based on keyword, begin the topic substring retrieval
+		start_index = lowercase_line.index(keyword) + keyword.length + 1 # add one to get first word
+
+		end_of_line = lowercase_line.length
+
+		puts lowercase_line[start_index..end_of_line]
+
+		# get end of topic by finding the next period/end
+		end_index = start_index + lowercase_line[start_index..end_of_line].index(/[,.]/) - 1
+
+		puts "task: " + lowercase_line[start_index..end_index].capitalize
+
+		return lowercase_line[start_index..end_index].capitalize
+	end
 
 	# precondition = has to have the keyword
 	def parse_subject_line(line)
