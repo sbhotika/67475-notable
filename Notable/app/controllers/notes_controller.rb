@@ -7,8 +7,15 @@ class NotesController < ApplicationController
 	end
 
 	def transcribe
-		@content = nil #this is where we call the library
+		params[:rawText]
 
+		@content = "hello"
+
+		puts "\n\\n\n" + params[:rawText] + "\n\n\n\n\n"
+
+		respond_to do |format|
+        format.js
+    end
 	end
 
   	def new

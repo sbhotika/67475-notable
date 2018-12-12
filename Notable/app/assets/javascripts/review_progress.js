@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+
   var transcribeButton = document.getElementById("microphone-icon")
   var transcribeButtonStatus = transcribeButton.value
   var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -91,25 +93,22 @@ $( document ).ready(function() {
       ev.preventDefault();
       ev.stopImmediatePropagation();
 
-      myFunction();});
+      transcribe();});
 
-  function myFunction() {
-    // start
+  function transcribe() {
     console.log("V: "+ transcribeButton.value);
     console.log(transcribeButtonStatus);
 
+    // start recording
     if (transcribeButtonStatus === "off") {
-      // alert("starting recording");
       transcribeButton.value = "on"
       transcribeButtonStatus = "on"
-
-
-      // start it
+      // start recognition
       recognition.start();
     }
-    // stop
+    // stop recording
     else {
-      // alert("ending recording")
+      // end recognition
       recognition.stop();
       transcribeButton.value = "off"
       transcribeButtonStatus = "off"
@@ -127,7 +126,7 @@ $( document ).ready(function() {
     newText = newText.replace("sounds","Sounds");
     newText = newText.replace("to me","to me.<br><br>");
     newText = newText.replace("great","Great.");
-    newText = newText.replace("the second","The Second");
+    newText = newText.replace("the second","The second");
     newText = newText.replace("environment","environment. ");
     newText = newText.replace("with you","with you?<br><br>");
     newText = newText.replace("that works","That works.<br><br>");

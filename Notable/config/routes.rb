@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get "/", to: 'home#index'
+
+  get 'notes/transcribe', to: 'notes#transcribe', as: 'transcribe_note'
 end

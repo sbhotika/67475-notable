@@ -66,11 +66,37 @@
       <!-- <p> asdf </p> -->
     </div>
     <img src="/images/toolbar.svg" id="toolbar">
+    <a href='#' id='executer-button' class='btn btn-default'>Executer</a>
+
+
     <div class="notes-body">
-        <p id="note-textarea"></p>
+        <p id="note-textarea">hello</p>
     	  <!-- this is where to populate the transcription context -->
     </div>
   </div>
+
+  <script type='text/javascript'>
+    // set ajax
+    //This function calls the "execute" controller action, using its route and also
+    //passes a "selectingCommand" variable to it
+    var callExecuter=function(){
+      var text = document.getElementById("note-textarea").textContent
+      alert("ajax!");
+      $.ajax({
+        type:'GET',
+        url:'/notes/transcribe',
+        data: { rawText : text
+              },
+        success:function(){
+          alert(<%= @content %>);
+          //I assume you want to do something on controller action execution success?
+          $(this).addClass('done');
+        }
+      });
+    }
+
+    $(document).on("click","#executer-button",callExecuter);
+  </script>
 
 
 
