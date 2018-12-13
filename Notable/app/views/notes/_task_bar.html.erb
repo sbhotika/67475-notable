@@ -1,0 +1,16 @@
+<article id="task-bar">
+  <h1>Task Progress</h1>
+  <hr>
+  <div class="list">
+      <ol id="review-list">
+        <% for task in @tasks %>
+          <!-- <li> <input type="checkbox" class="complete-item"> Section 1 <button class="delete-item">X</button></li>
+          <!-- <li> <input type="checkbox" class="complete-item"> Section 2 <button class="delete-item">X</button></li> -->
+          <li> <input type="checkbox" class="complete-item"> <%= task %>  <button class="delete-item">X</button></li>
+        <% end %>
+      </ol>
+  </div>
+  <input id="new-list-item" type="text"></input>
+  <button id="add-item">Add New</button>
+
+</article>

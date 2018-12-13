@@ -68,14 +68,14 @@ article {
 }
 
 .notes-body {
-	padding: 4rem;
+	padding: 1rem;
 }
 
 .left-half {
   	background: white;
   	position: absolute;
   	margin-left: 0px;
-  	width:30%;
+  	width:20% !important;
   	height:100vh;
   	border-width: 0 1px 0 0;
   	border-style: solid;
@@ -88,7 +88,7 @@ article {
   	background: white;
   	position: absolute;
   	right: 0px;
- 		width:62.5%;
+ 		width:72.5% !important;
   	height:100vh;
   	border-width: 0 0 0 1px;
   	border-style: solid;
@@ -168,7 +168,7 @@ textarea{
   /* demo only: */
   padding:10px;
   width:100%;
-  font-size:14px;
+  font-size:10px;
   margin:50px auto;
   display:block;
   border-radius:10px;
