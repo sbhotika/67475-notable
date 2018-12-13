@@ -16,7 +16,28 @@
       <h3>Parsed Notes</h3>
       <hr/>
       <h5><b>Subject:</b> <%= @subject %></h5>
-      <%= @parsed_text %>
+      <h6>Meeting Details:</h6>
+      <ul>
+        <li>Start: <%= @start_time %></li>
+        <li>End: <%= @end_time %></li>
+        <li>Duration: <%= @duration %></li>
+        <li>Attendance: <%= @participants.length %></li>
+      </ul>
+
+      <h5>Tasks discussed:</h5>
+      <ol>
+        <% for task in @tasks %>
+          <li><%= task %></li>
+        <% end %>
+      </ol>
+
+
+      <h6>Meeting Participants:</h6>
+      <ul>
+        <% for person in @participants %>
+          <li><%= person %></li>
+        <% end %>
+      </ul>
     </div>
 
   </div>

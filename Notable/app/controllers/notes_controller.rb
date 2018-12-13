@@ -26,6 +26,11 @@ class NotesController < ApplicationController
 
 		@raw_text = raw_text
 
+		# meeting details
+		@start_time = params[:startTime]
+		@end_time = params[:endTime]
+		@duration = params[:diffHours] + " Hours, " +  params[:diffMins] + " Minutes, " + params[:diffSecs] + " Seconds"
+
 		@subject = get_subject(line_buffer)
 
 		puts "Subject: " + @subject
@@ -39,7 +44,6 @@ class NotesController < ApplicationController
 		puts "Tasks: \n- " + @tasks.join("\n- ")
 
 
-		@parsed_text = "parsed"
 
 
 		respond_to do |format|
