@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Notable - New Note</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="../css/newnote.css"/>
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand  static-top">
+
+      <a class="navbar-brand mr-1" href="index.html"><img src="../images/new-logo.png" width="35%"></a>
+
+      <!-- Navbar Search -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 form-sm active-cyan-2 mt-2">
+        <input size="30" class="form-control form-control-sm" type="text" placeholder="Search" aria-label="Search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </form>
+
+      <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bell fa-fw"></i>
+            <span class="badge badge-danger">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+            <a class="dropdown-item" href="#">You have 3 new notifications</a>
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item" href="#">
+              <span class="pull-left thumb-sm">
+                <img width="15%" src="../images/profile_pic1 copy.svg">
+                <span>Stephanie has shared a new note ...</a>
+            <a class="dropdown-item" href="#">
+              <span class="pull-left thumb-sm">
+                <img width="15%" src="../images/profile_pic1 copy.svg">
+                <span>Stephanie has edited a note ...</a>
+            <a class="dropdown-item" href="#">
+              &nbsp;&nbsp;
+              <i class="fas fa-tasks"></i>
+              &nbsp; &nbsp; Its been two weeks since you last ...</a>
+            <a class="dropdown-item" href="#">5 upcoming review tasks</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-envelope fa-fw"></i>
+            <span class="badge badge-danger">1</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+            <a class="dropdown-item" href="#">You have 1 unread messages</a>
+            <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <span class="pull-left thumb-sm">
+                  <img width="15%" src="images/profile_pic1 copy.svg">
+                  <span>Alex: Hey guys, let's ...</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Activity Log</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          </div>
+        </li>
+      </ul>
+
+    </nav>
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav" style="left: 200px; width: calc(100% - 200px);">
+        <!-- nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/notes/newnote">
+            <i class="fas fa-fw fa-plus"></i>
+            <span id="newnote"></span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="">
+            <i class="fas fa-fw fa-book"></i>
+            <span id="everythingtext"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">
+            <i class="fas fa-fw fa-clock"></i>
+            <span></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">
+            <i class="fas fa-fw fa-star"></i>
+            <span></span></a>
+        </li>
+      </ul>
+      <ul id="nestednav" class="sidebar navbar-nav" style="left: 200px; width: calc(100% - 200px);">
+        <!-- nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/notes/newnote">
+            <i class="fas fa-fw fa-tasks">&nbsp;&nbsp;Tasks</i>
+            <span id="newnote"></span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="">
+            <i class="fa fa-comment-dots">&nbsp;&nbsp;Chat</i>
+            <span id="everythingtext"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">
+            <i class="fa fa-share-alt-square">&nbsp;&nbsp;Share</i>
+            <span></span></a>
+        </li>
+      </ul>
+      <ul id="nestednestednav" class="sidebar navbar-nav" style="left: 200px; width: calc(100% - 200px);">
+        <div class="left-half">
+          <article id="task-bar">
+            <center>
+            <h1>Task Progress</h1>
+            </center>
+            <hr>
+            <div class="list">
+                <ol id="review-list">
+                    <!-- <li> <input type="checkbox" class="complete-item"> Section 1 <button class="delete-item">X</button></li>
+                    <li> <input type="checkbox" class="complete-item"> Section 2 <button class="delete-item">X</button></li>
+                    <li> <input type="checkbox" class="complete-item"> Section 3 <button class="delete-item">X</button></li> -->
+                </ol>
+            </div>
+            <input id="new-list-item" type="text"></input>
+            <button id="add-item">Add New</button>
+
+          </article>
+        </div>
+
+      </ul>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          <!-- Breadcrumbs-->
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><h4>Monday Meeting notes &nbsp;<i class="fa fa-pencil-alt"></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/groups.svg" id="groups">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button value="off" class="fa fa-microphone" id="microphone-icon"></button>
+              <a href='#' id='executer-button' class='btn btn-default'>Organize</a></h4>
+              <p align='right' style='margin-right:16%'id="recording-instructions"><p>Voice Transcription: Off</p>
+              </li>
+          </ol>
+          <img src="/images/toolbar.svg" id="toolbar">
+          <!-- Icon Cards-->
+          <div class="notes-body">
+              <div id="notes-content">
+                <!-- <p id="note-textarea">hello</p> -->
+                <textarea id="note-textarea" rows="17" cols="80" placeholder="Meeting notes..."></textarea>
+                <!-- this is where to populate the transcription context -->
+              </div>
+          </div>
+
+        <!-- /.container-fluid -->
+
+
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+
+
+    <script type='text/javascript'>
+      var startTime, endTime;
+
+      $("#microphone-icon").click(function() {
+        if ($("#microphone-icon").val() === "off") {
+          startTime = new Date();
+        } else {
+          endTime = new Date();
+        }
+      })
+
+      // set ajax
+      //This function calls the "execute" controller action, using its route and also
+      //passes a "selectingCommand" variable to it
+      var callExecuter=function(e){
+        e.preventDefault();
+        e.stopPropagation(); // only neccessary if something above is listening to the (default-)event too
+
+
+        var diffMs = (endTime - startTime); // milliseconds between now & Christmas
+        var diffDays = Math.floor(diffMs / 86400000); // days
+        var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+        var diffSecs = Math.round(diffMs / 1000); // seconds
+
+
+        var text = document.getElementById("note-textarea").value
+        alert("ajax!");
+        $.ajax({
+          type:'GET',
+          url:'/notes/transcribe',
+          data: { rawText : text,
+                  startTime: parseDate(startTime),
+                  endTime: parseDate(endTime),
+                  diffMins:  diffMins,
+                  diffHours:  diffHrs,
+                  diffSecs:  diffSecs
+                }
+
+        });
+      }
+
+      $("#executer-button").on("click",callExecuter);
+
+      function parseDate(date) {
+        var year = date.getFullYear()
+        var day = date.getUTCDate()
+        var month = date.getMonth() + 1
+        var hour = date.getHours()
+        var mins = date.getMinutes()
+        var dayTime;
+        if (hour < 12) {
+          dayTime = " AM"
+          hour = hour % 12
+          if (hour === 0) {
+            hour = 12
+          }
+        } else {
+          dayTime = " PM"
+          hour = hour % 12
+          if (hour === 0) {
+            hour = 12
+          }
+        }
+
+        if (mins < 10) {
+          mins = "0" + String(mins)
+        } else {
+          mins = String(mins)
+        }
+
+        return String(month) + "/" + String(day) + "/" + String(year) + " " + String(hour) + ":" + mins + dayTime;
+      }
+    </script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="../vendor/chart.js/Chart.min.js"></script>
+    <script src="../vendor/datatables/jquery.dataTables.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <!-- <script src="js/sb-admin.min.js"></script> -->
+  </body>
+
+</html>

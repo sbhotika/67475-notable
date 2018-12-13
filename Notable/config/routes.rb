@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'notes/new'
 
+  get 'notes/newnote'
+
   get 'home/index'
 
   get "/", to: 'home#index'
