@@ -49,7 +49,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   right: 15px;
   bottom: 15px;
   display: none;
-  width: 50px;
+  width: 70px;
   height: 50px;
   text-align: center;
   color: #fff;
@@ -91,21 +91,19 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   width: 100%;
 }
 
-/* .navbar-nav .nav-item.active .nav-link {
-  color: #fff;
-}
-.fas .fa-bell {
-  color: #black;
-} */
+
 i.fas.fa-bell.fa-fw{
   color: #B1F79F;
+  /* font-size: 26px; */
 }
 i.fas.fa-envelope.fa-fw {
   color: #B1F79F;
+  /* font-size: 26px; */
 }
 
 i.fas.fa-user-circle.fa-fw {
   color: #B1F79F;
+  /* font-size: 26px; */
 }
 a.dropdown-item {
   color:black;
@@ -139,6 +137,28 @@ li.nav-item.active {
 }
 i.fas.fa-fw.fa-plus {
   color: #B1F79F;
+  font-size:26px;
+  padding-left:22px;
+}
+
+i.fas.fa-fw.fa-book{
+  color: white;
+  font-size:26px;
+  padding-left:22px;
+  padding-top:10px;
+}
+
+i.fas.fa-fw.fa-clock {
+  color: white;
+  font-size:26px;
+  padding-left:22px;
+  padding-top:10px;
+}
+i.fas.fa-fw.fa-star {
+  color: white;
+  font-size:26px;
+  padding-left:22px;
+  padding-top:10px;
 }
 
 
@@ -158,13 +178,14 @@ i.fas.fa-fw.fa-plus {
 
 ul#nestednav {
   color: black;
-  width: 150px !important;
+  width: 250px !important;
 }
 
 
 ul#nestednestednav {
-  color: black;
+  color: black !important;
   width: 550px !important;
+  background-color: #e9ecef;
 }
 input#new-list-item {
   margin-left: 15%;
@@ -204,7 +225,8 @@ textarea#note-textarea{
 }
 
 h1 {
-color: #EEEEEE;
+/* color: #e9ecef; */
+color: teal;
 
 }
 button {
@@ -222,7 +244,7 @@ input {
 }
 
 .sidebar {
-  width: 90px !important;
+  width: 250px !important;
   background-color: #374b5e;
   min-height: calc(100vh - 56px);
 }
@@ -234,7 +256,10 @@ input {
 .sidebar .nav-item .nav-link {
   text-align: center;
   padding: 0.75rem 1rem;
-  width: 90px;
+  width: 250px;
+}
+.ul.sidebar.navbar-nav {
+  border-right:2px solid #EEEEEE !important;
 }
 
 .sidebar .nav-item .nav-link span {
@@ -277,14 +302,14 @@ input {
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 50px !important;
+    width: 150px !important;
   }
   .sidebar .nav-item .nav-link {
     display: block;
     width: 100%;
     text-align: left;
     padding: 1rem;
-    width: 50px;
+    width: 1-0px;
   }
   .sidebar .nav-item .nav-link span {
     font-size: 1rem;
