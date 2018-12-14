@@ -63,7 +63,6 @@ article {
 }
 
 .notes-header {
-	padding: 1rem;
 	padding-left: 4rem;
 }
 
@@ -114,6 +113,7 @@ button {
     padding: 10px;
     color: teal;
     font-size: 0.8em;
+		width
 }
 
 input {
@@ -125,7 +125,10 @@ input {
 
 #toolbar {
 	width:100%;
-	margin-top: 10px;
+}
+
+#add-iteam {
+	width: 85px !important;
 }
 
 #edit-icon {
@@ -161,7 +164,7 @@ textarea#note-textarea {
 #add-notes{
 	text-align: center;
 	font-size: 34px;
-	color:#29CB97;
+	color: white;
 }
 
 /*********** EDITOR ************/
